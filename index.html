@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style type="text/css">
+		body {
+			font-size: 30px;
+			margin: 0;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.container {
+			width: 70%;
+			height: 10%;
+			background: #C7C7C7;
+			border-radius: 15px;
+			text-align: center;
+			padding: 10px 10px 10px 30px;
+		}
+
+		.box {
+			font-size: 40px;
+			width: 20%;
+			margin: 10px 10px 10px 10px;
+			text-align: center;
+			background-color: white;
+			border-radius: 15px;
+		}
+	
+	</style>
+
+</head>
+<body>
+	<table class="container">
+			<tr>
+				<td class="box" id="years">6</td>
+				<td>Years</td>
+				<td class="box" id="months">8</td>
+				<td>Months</td>
+			</tr>
+	</table>
+		
+	<script type="text/javascript">
+
+		function countdown() {
+			var now = new Date().getTime();
+			var future = new Date('September 1, 2027 00:00:00').getTime();
+			diff = future - now; 
+
+			var s = Math.floor(diff / 1000);
+			var m = Math.floor(s / 60);
+			var h = Math.floor(m / 60);
+			var d = Math.floor(h / 24);
+			var m = Math.floor(d / 31);
+			var y = Math.floor(m / 12);
+
+			m %= 31;
+			y %= 12;
+
+			y = (y < 10) ? "0" + y: y;
+			m = (m < 10) ? "0" + m: m;
+
+			Document.getElementById("years").textContent = y;
+			Document.getElementById("years").innerText = y;
+			Document.getElementById("months").textContent = m;
+			
+			setTimeout(countdown, 1000);
+
+		}
+		countdown();
+	</script>
+
+</body>
+</html>
